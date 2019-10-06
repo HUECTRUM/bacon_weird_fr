@@ -22,7 +22,7 @@ class PlayerInfo extends React.Component {
     }
 
     render() {
-        const { classes, info, discardOne, discardTwo, health, attack } = this.props;
+        const { classes, info, discardOne, discardTwo, health, attack, ua } = this.props;
 
         return (
           <Grid container className={classes.root} spacing={3}>
@@ -34,6 +34,7 @@ class PlayerInfo extends React.Component {
                 discardOne={discardOne}
                 discardTwo={discardTwo}
                 health={health}
+                ua={ua}
               />
             </Grid>
             <Grid item xs={3}>

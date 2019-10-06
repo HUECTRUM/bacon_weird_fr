@@ -12,6 +12,8 @@ export default msg => {
       case 'P1_D2_DISCARD_CHANGED': return null;
       case 'P2_D1_DISCARD_CHANGED': return null;
       case 'P2_D2_DISCARD_CHANGED': return null;
+      case 'P1_UA_CHANGE': return null;
+      case 'P2_UA_CHANGE': return null;
       case 'PAIRS_SELECTED': return 'Pairs have been selected. Ante phase.';
       case 'P1_PAIR_REVEALED': return null;
       case 'P2_PAIR_REVEALED': return null;
@@ -28,5 +30,7 @@ export default msg => {
       case 'P2_ANTE': return 'Player two anted ' + msg.args[0];
       case 'EFFECT_CHOICE': return 'Effect choice. Type in the index. Effect ' + msg.args[0] + ' choices ' + msg.args[1];
       case 'PRIORITY_ACTIVE': return 'Player ' + msg.args[0] + ' has become the active player';
+      case 'CLASH_BASE_SELECT': return 'A clash has occurred. Select a new base.';
+      case 'EFFECT_ORDER_SELECT': return 'Select effect order by typing indexes. Effects ' + msg.args;
     }
 };

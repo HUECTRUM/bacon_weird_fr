@@ -19,12 +19,15 @@ class PlayerGeneralInfo extends React.Component {
     }
 
     render() {
-        const { classes, info, discardOne, discardTwo, health } = this.props;
+        const { classes, info, discardOne, discardTwo, health, ua } = this.props;
 
         return (
             <Paper className={classes.paper}>
               <Typography variant="h5" component="h3">
                 {info[0]}: {info[1]} at {health} hp
+              </Typography>
+              <Typography variant="h5" component="h3">
+                UA: {ua}
               </Typography>
               <Typography component="p">
                 Discard1: {discardOne.join(', ')}

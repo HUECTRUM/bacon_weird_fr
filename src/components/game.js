@@ -7,7 +7,6 @@ import MessageSender from './messgeSender.js';
 import SocketFeed from './socketFeed.js';
 
 import createSocket from '../api/gameSocket.js';
-import createGame from '../api/createGame.js';
 import messageProcessor from '../api/messageProcessor.js';
 import messageStateChanger from '../api/messageStateChanger.js';
 
@@ -26,8 +25,11 @@ class Game extends React.Component {
           playerTwoDiscardTwo: [],
           playerTwoDiscards: [],
 
-          playerOnePair: '',
-          playerTwoPair: '',
+          playerOnePair: [''],
+          playerTwoPair: [''],
+
+          playerOneUaInfo: '',
+          playerTwoUaInfo: '',
 
           playerOneHealth: 20,
           playerTwoHealth: 20,
@@ -45,7 +47,7 @@ class Game extends React.Component {
     }
 
     onPress = () => {
-      console.log(this.state.socket.send(this.state.currentMsg))
+      this.state.socket.send(this.state.currentMsg)
     }
 
     onMessage = (event) => {
@@ -67,12 +69,10 @@ class Game extends React.Component {
     componentDidMount = () => {
       var socket = createSocket(this.onMessage)
       this.setState({socket: socket})
-      createGame()
     }
 
     render() {
         const { classes, data } = this.props;
-        console.log("state of things ", JSON.stringify(this.state))
 
         return (
           <div>
@@ -82,6 +82,7 @@ class Game extends React.Component {
               discardTwo={this.state.playerTwoDiscardTwo}
               health={this.state.playerTwoHealth}
               attack={this.state.playerTwoPair}
+              ua={this.state.playerTwoUaInfo}
             />
             <Board board={this.state.board}/>
             <PlayerInfo
@@ -90,6 +91,7 @@ class Game extends React.Component {
               discardTwo={this.state.playerOneDiscardTwo}
               health={this.state.playerOneHealth}
               attack={this.state.playerOnePair}
+              ua={this.state.playerOneUaInfo}
             />
 
             <MessageSender

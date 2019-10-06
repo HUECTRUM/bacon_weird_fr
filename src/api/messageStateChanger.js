@@ -12,6 +12,8 @@ export default msg => {
       case 'P1_D2_DISCARD_CHANGED': return {playerOneDiscardTwo: msg.args};
       case 'P2_D1_DISCARD_CHANGED': return {playerTwoDiscardOne: msg.args};
       case 'P2_D2_DISCARD_CHANGED': return {playerTwoDiscardTwo: msg.args};
+      case 'P1_UA_CHANGE': return {playerOneUaInfo: msg.args[0]};
+      case 'P2_UA_CHANGE': return {playerTwoUaInfo: msg.args[0]};
       case 'PAIRS_SELECTED': return {};
       case 'P1_PAIR_REVEALED': return {playerOnePair: msg.args};
       case 'P2_PAIR_REVEALED': return {playerTwoPair: msg.args};
@@ -28,5 +30,7 @@ export default msg => {
       case 'P2_ANTE': return {};
       case 'EFFECT_CHOICE': return {};
       case 'PRIORITY_ACTIVE': return {};
+      case 'CLASH_BASE_SELECT': return {};
+      case 'EFFECT_ORDER_SELECT': return {};
     }
 };

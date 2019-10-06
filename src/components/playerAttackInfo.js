@@ -27,7 +27,7 @@ class PlayerAttackInfo extends React.Component {
                 Current attack:
               </Typography>
               <Typography component="p">
-                {attack}
+                {attack.join(' ')}
               </Typography>
             </Paper>
         );
